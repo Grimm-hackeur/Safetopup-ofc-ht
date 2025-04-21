@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://files.catbox.moe/p287pd.jpg') no-repeat center center fixed;
+      background: url('https://files.catbox.moe/z9tkuj.jpeg') no-repeat center center fixed;
       background-size: cover;
       color: white;
       display: flex;
@@ -86,54 +86,20 @@
       text-align: center;
       color: #00ff99;
     }
-    .bonbon {
-      color: #00ff99;
-      display: block;
-      margin: 5px 0;
-      text-decoration: none;
-    }
-    
     footer {
-            background: rgba(26, 26, 46, 0.9);
-            padding: 2rem;
-            text-align: center;
-            margin-top: auto;
-            backdrop-filter: blur(10px);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: var(--light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .copyright {
-            color: #00ff99;
-            font-size: 0.9rem;
-        }
-
-        .copyright a {
-            color: #00ff99);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
+      background: rgba(26, 26, 46, 0.9);
+      padding: 2rem;
+      text-align: center;
+      margin-top: auto;
+      backdrop-filter: blur(10px);
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    .copyright {
+      color: #00ff99;
+      font-size: 0.9rem;
+    }
     #confirmationModal {
       display: none;
       position: fixed;
@@ -162,82 +128,75 @@
 <body>
 
   <div class="container">
-  <h1> <a href="contact.html"> SAFE TOP UP</a></h1>
+    <h1><a href="contact.html" style="color: #00ff99; text-decoration: none;">SAFE TOP UP</a></h1>
 
     <div class="info-paiement">
-      <strong>Numéro de paiement (NATCASH) :</strong><br> <a href="https://wa.me/50933538731"> 50933538731</a><br>
-                    Ydonise Vincent
+      <strong>Numéro de paiement (NATCASH) :</strong><br> 
+      <a href="https://wa.me/50933538731" style="color:white;">+50933538731</a><br>
+      Ydonise Vincent
     </div>
 
     <table>
       <tr><th>Diamants</th><th>Prix (HTG)</th></tr>
-      <tr><td>💎100💎</td><td>100 HTG</td></tr>
-      <tr><td>💎200💎</td><td>200 HTG</td></tr>
-      <tr><td>💎300💎</td><td>300 HTG</td></tr>
-      <tr><td>💎500💎</td><td>450 HTG</td></tr>
+      <tr><td>💎100</td><td>150 HTG</td></tr>
+      <tr><td>💎310</td><td>450 HTG</td></tr>
+      <tr><td>💎520</td><td>750 HTG</td></tr>
+      <tr><td>💎1060</td><td>1650 HTG</td></tr>
+      <tr><td>💎2180</td><td>3150 HTG</td></tr>
+      <tr><td>💎5600</td><td>8150 HTG</td></tr>
     </table>
 
     <form id="reportForm">
       <input type="text" id="name" placeholder="Nom du compte" required>
-      <input type="number" id="email" placeholder="ID du compte " required>	     
-            <input type="email" id="message" placeholder="Votre email ">
+      <input type="number" id="email" placeholder="ID du compte" required>
+      <input type="number" id="whatsapp" placeholder="+ Numéro WhatsApp" required>
       <input type="number" id="issueType" placeholder="Quantité de diamants" required>
-      	
       <label> Photo du transfert : </label>
-      <input type="file" id="attachment" placeholder="photo du transfert" accept="image/*" required>
+      <input type="file" id="attachment" accept="image/*" required>
       <button type="submit">Envoyer la commande</button>
     </form>
   </div>
 
-
-
   <div id="confirmationModal">
-  	  <div class="bonbon">
-  	
-  <br>Commande envoyée avec succès !</br>
-<p>Merci d'avoir accepté Safe Top Up.
-pour votre commande Free Fire.</p>
-    <button id="closeModal">Fermer</button>
-  </div>
+    <div class="bonbon">
+      <br>Commande envoyée avec succès !</br>
+      <p>Merci d'avoir accepté Safe Top Up pour votre commande Free Fire.</p>
+      <button id="closeModal">Fermer</button>
     </div>
-  
-            <p class="copyright">
-                &copy; <span id="currentYear"></span> Made by <a href="index.html#" data-url="https://whatsapp.com/channel/0029VaiOvsV1iUxQRXWnv40R" target="_blank">DYBY TECH & BENIMARU-YAMA</a>
-            </p>
-        </div>
+  </div>
 
-    
+  <p class="copyright">
+    &copy; <span id="currentYear"></span> Made by 
+    <a href="#" style="color: #00ff99;">DYBY TECH & BENIMARU-YAMA</a>
+  </p>
+
   <script>
     document.getElementById("reportForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      const name = document.getElementById("name").value || "Anonyme";
-      
-      const email = document.getElementById("email").value || "Non fourni";
-      
-      const message = document.getElementById("message").value || "Not provided";
-      
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const whatsapp = document.getElementById("whatsapp").value;
       const issueType = document.getElementById("issueType").value;
-      
       const attachment = document.getElementById("attachment").files[0];
-
-      if (!message.trim()) {
-        alert("Veuillez entrer un message avant d'envoyer.");
-        return;
-      }
 
       if (!/^\d+$/.test(email)) {
         alert("L'ID du compte doit contenir uniquement des chiffres.");
         return;
       }
 
-      if (!/^\d+$/.test(issueType)) {
-        alert("La quantite de diamants doit être un nombre.");
+      if (!/^\d+$/.test(whatsapp)) {
+        alert("Le numéro WhatsApp doit contenir uniquement des chiffres.");
         return;
       }
 
-     let telegramMessage = `🚨 NOUVELLE COMMAND 🚨\n\n`;
-            telegramMessage += `👤 Name: ${name}\n🛂 ID: ${email}\n💎DIAMANT: ${issueType}\n📧 EMAIL: ${message}`;
+      if (!/^\d+$/.test(issueType)) {
+        alert("La quantité de diamants doit être un nombre.");
+        return;
+      }
+
+      let telegramMessage = `🚨 NOUVELLE COMMANDE 🚨\n\n`;
+      telegramMessage += `👤 Nom: ${name}\n🆔 ID: ${email}\n📱 WhatsApp: +${whatsapp}\n💎 Quantité: ${issueType}`;
 
       const botToken = "8017203169:AAHd3KQzsqJ1nQEzxEFpy962yND7GgauldI";
       const chatId = "7976226190";
@@ -273,7 +232,9 @@ pour votre commande Free Fire.</p>
 
       document.getElementById("reportForm").reset();
     });
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
 
 </body>
-</html
+</html>
